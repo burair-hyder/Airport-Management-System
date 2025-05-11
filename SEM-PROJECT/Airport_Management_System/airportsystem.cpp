@@ -5,6 +5,7 @@
 #include <sstream>
 #include <iomanip>
 #include <exception>
+#include <thread>
 using namespace std;
 
 
@@ -21,6 +22,22 @@ const string FLIGHTS_FILE = "flights.txt";
 const string PASSENGERS_FILE = "passengers.txt";
 const string CARGO_FILE = "cargo.txt";
 const string STAFF_FILE = "staff.txt";
+
+template <typename T, typename U>
+T addTwo(T var1, U var2) {
+    return var1 + var2;
+}
+
+template <>
+string addTwo<string,string>(string var1,string var2) {
+	string output= "your name is";
+	cout <<"I am guessing your name..."<<endl;
+	cout <<"Processing Data..."<<endl;
+	this_thread::sleep_for(std::chrono::seconds(3));
+	cout <<"Processing Data..."<<endl;
+		this_thread::sleep_for(std::chrono::seconds(3));
+    return output +" " + var1+ " "+ var2;
+}
 
 class AirportExceptions : public exception{
 	
@@ -121,7 +138,7 @@ public:
              << bookedSeats << "/" << totalSeats << endl;
     }
     
-    bool operator==(const Flight &other) const {	
+      bool operator==(const Flight &other) const {	
     	return (destination == other.destination && durationMinutes == other.durationMinutes&& flightNumber == other.flightNumber);
 	}
 
@@ -161,7 +178,6 @@ public:
     void analyticsReport();
     void viewFlightDetails();
 };
-// Function Definitions (continued from class declaration)
 
 
 void AirportSystem::loadFromFiles() {
@@ -351,9 +367,7 @@ void AirportSystem::delayFlight() {
     cout << "Flight not found.\n";
 }
 
-// Function Definitions (continued from class declaration)
 
-// ... existing functions ...
 
 void AirportSystem::addPassengerToFlight() {
     string fNum, name, passport, seat, meal;
@@ -418,9 +432,7 @@ void AirportSystem::viewPassengersOfFlight() {
     }
     cout << "Flight not found.\n";
 }
-// Function Definitions (continued from class declaration)
 
-// ... previous functions ...
 
 void AirportSystem::cancelPassengerFromFlight() {
     string fNum, passport;
@@ -556,7 +568,9 @@ public:
 };
 // Main Function
 int main() {
-	system("color 0B"); // 0 = Black background, A = Light green text
+	string name;
+				string name1;
+	system("color 0B"); 
 	cout << setw(60) << "**************************************************" << endl;
     cout << setw(60) << "*     WELCOME TO AIRPORT MANAGEMENT SYSTEM       *" << endl;
     cout << setw(60) << "*                 DEVELOPED BY:                  *" << endl;
@@ -602,6 +616,7 @@ try{
         cout << "11. View All Feedback\n";
         cout << "12. Analytics Report\n";
         cout << "13. View Flight Details\n";
+        cout << "14. Getting Bored! lets Play with Templates"<<endl;
         cout << "0.  Exit\nChoice: ";
         cin >> choice;
 
@@ -632,6 +647,19 @@ try{
 					break;
             case 13: sys.viewFlightDetails(); 
 					break;
+					
+			case 14: 
+				
+				cout <<"you Dont know 5+10 is:"<<addTwo(5,10)<<endl;
+				cout<<endl;
+				cout <<"Enter First Name:  "<<endl;
+				cin >>name;
+				cout <<"Enter Second name: " <<endl;
+				cin >>name1;
+				cout <<addTwo(name,name1);
+				cout <<endl;
+				cout <<"thanks for playing with US!"<<endl;
+				break;
             case 0: cout << "ThankYou for Flying with US!\n"; 
 					break;
             default: cout << "Invalid choice.\n";
