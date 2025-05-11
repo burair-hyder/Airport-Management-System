@@ -14,7 +14,7 @@ class Passenger;
 class Cargo;
 class Staff;
 class Flight;
-class AirportSystem
+class AirportSystem;
 
 
 const string FLIGHTS_FILE = "flights.txt";
@@ -566,6 +566,16 @@ int main() {
     cout << setw(60) << "*   4) Ammar  Kamran   24K-0732                  *" << endl;
     cout << setw(60) << "*                                                *" << endl;
     cout << setw(60) << "**************************************************" << endl;
+     cout << setw(60) << "                                 |                                  \n";
+    cout << setw(60) << "                                 |                                  \n";
+    cout << setw(60) << "                                 |                                  \n";
+    cout << setw(60) << "                                _|_                                 \n";
+    cout << setw(60) << "                               /___\\                                \n";
+    cout << setw(60) << "                              /_____\\                               \n";
+    cout << setw(60) << "                             /oo   oo\\                              \n";
+    cout << setw(60) << " \\___________________________\\       /___________________________/  \n";
+    cout << setw(60) << "  `-----------|------|--------\\_____/--------|------|-----------'   \n";
+    cout << setw(60) << "             ( )    ( )     O|OOo|oOO|O     ( )    ( )               \n";
      UserAuth auth;
 
     if (!auth.login()) {
