@@ -578,10 +578,10 @@ int main() {
     cout << setw(60) << "             ( )    ( )     O|OOo|oOO|O     ( )    ( )               \n";
      UserAuth auth;
 
-    if (!auth.login()) {
-        cout << "Access denied.\n";
-        return 1;
-    }
+    while (!auth.login()){
+     cout << "Access denied.\n";
+        
+    } 
 try{
     AirportSystem sys;
 
