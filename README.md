@@ -52,6 +52,8 @@ These `.txt` files are auto-generated and updated during program execution.
 ## 🛠️ How to Compile and Run
 
 ### 🖥️ Requirements
+- Username : admin
+- password = 1234
 - C++ Compiler (e.g., g++, clang++, or Dev-C++ for Windows)
 
 ### ▶️ Compile
